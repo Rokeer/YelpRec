@@ -49,7 +49,7 @@
 
 \paragraph{} The first task is using topic modeling processes to learn the hidden topic from users reviews from the Yelp dataset. For example, if a user’s review talks about low price feature of a restaurant, this task aim to find out this feature of the restaurant. In addition, this task also focuses on find features for users, with the same example, that user will have a feature that have more interested in low price restaurant, so that we can use this information to cluster users and businesses and predict user rating in the next task. Current traditional topic modeling processes could figure out the topics such as "food", "price", "service", but cannot figure out the user’s sentiment expressed in the review for each topics, such as "good food", "low price". "nice service".
 
-\paragraph{} In our project, we may use a topic modeling method called Latent Dirichlet Allocation to training our data. However, traditional LDA still have the same problem that only can figure out the topics but not the sentiment among the topic [1]. Since LDA is a kind of statistic machine learning method, so we may modify feature space so that help LDA to figure out the sentiment.
+\paragraph{} In our project, we may use a topic modeling method called Latent Dirichlet Allocation to training our data. However, traditional LDA still have the same problem that only can figure out the topics but not the sentiment among the topic \cite{LDA}. Since LDA is a kind of statistic machine learning method, so we may modify feature space so that help LDA to figure out the sentiment.
 
 \paragraph{} In our second task, the goal is to predict the star ratings of the Yelp dataset. There are several related works for predicting scores. K-nearest neighbor averages the ratings from similar users, and User-based collaborative filtering is a wider form of the KNN approach. However, this kind of approach suffer from the curse of dimensionality. The SVD approach tries to decompose the user-item matrix while it does not apply the informative review information. 
 
@@ -67,8 +67,6 @@ P(rating | user representation, local business representation, average rating, r
 
 % REFERENCES %
 \newpage
-\section{Example of Bib}
-Random citation \cite{LDA} embedded in text.
 
 \bibliography{all}
 \bibliographystyle{ieeetr}
