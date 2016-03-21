@@ -34,7 +34,7 @@ def feature_selection(fp):
     print >> sys.stderr, "scanning file, line_id=%s" %(1 + line_id)
 
     """ extract text feature from the corpus. """
-    vectorizer = TfidfVectorizer(min_df=1)
+    vectorizer = TfidfVectorizer(min_df=1, stop_words="english")
     X = vectorizer.fit_transform(sents)
 
     """ feature selection, """

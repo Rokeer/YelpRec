@@ -37,13 +37,13 @@ if __name__ == "__main__":
     x_valid, y_valid = load_data("output/review.merge.valid")
 
     # create tf-idf model
-    vectorizer = TfidfVectorizer(min_df=1)
+    vectorizer = TfidfVectorizer(min_df=1, stop_words="english")
     x_train = vectorizer.fit_transform(x_train)
     x_valid = vectorizer.transform(x_valid)
     joblib.dump(vectorizer, "model/tfidf.pkl")
 
-    # feature selection
-    filter = SelectKBest(chi2, k=200)
+    # feature selection, TODO: cross-validation for selecting best k
+    filter = SelectKBest(chi2, k=4000)
     x_train = filter.fit_transform(x_train, y_train)
     x_valid = filter.transform(x_valid)
     joblib.dump(filter, "model/chi2.pkl")

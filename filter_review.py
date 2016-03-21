@@ -30,7 +30,7 @@ def check_sentences(sentences):
         ws2 = [w for w in ws if w in fwords2]
         score = min(len(ws1), len(ws2))
 
-        if len(ws) < 16 and score >= 2 and (p[i][0] > 0.8 or p[i][1] > 0.8):
+        if len(ws) < 16 and score >= 1 and (p[i][0] > 0.8 or p[i][1] > 0.8):
             flags.append((True, score, p[i][1]))
         else:
             flags.append((False, score, p[i][1]))
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     print >> sys.stderr, "loading from STDIN..."
 
     with open("model/feature.pkl", "r") as fp:
-        fwords1 = set(pickle.load(fp)[:100])
+        fwords1 = set(pickle.load(fp)[:1000])
         fwords2 = set(pickle.load(fp)[:10000])
 
     vectorizer = joblib.load("model/tfidf.pkl")
