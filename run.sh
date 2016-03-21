@@ -24,12 +24,32 @@ if [ $? -ne 0 ]; then
     tail -$((nvalid+ntest)) output/review.merge | tail -$ntest > output/review.merge.test
 fi
 
-# train the doc2vec model from the corpus
-# perplexity: train=322.469,valid=331.492, test=345.631
-nohup python doc2vec.py output/review.merge.train output/review.merge.valid output/review.merge.test > train.log 2>&1 &
+## train the doc2vec model from the corpus
+## perplexity: train=322.469,valid=331.492, test=345.631
+#nohup python doc2vec.py output/review.merge.train output/review.merge.valid output/review.merge.test > train.log 2>&1 &
+#if [ $? -ne 0 ]; then
+#    echo "execute doc2vec.py error"
+#    exit -1
+#fi
+
+# select important features
+test -f model/feature.pkl
 if [ $? -ne 0 ]; then
-    echo "execute doc2vec.py error"
-    exit -1
+    python feature_selection.py
+    if [ $? -ne 0 ]; then
+        echo "execute feature_selection.py error"
+        exit -1
+    fi
+fi
+
+# train logistic regression model
+test -f model/logisticregression.pkl
+if [ $? -ne 0 ]; then
+    python logistic_regression.py
+    if [ $? -ne 0 ]; then
+        echo "execute logistic_regression.py error"
+        exit -1
+    fi
 fi
 
 exit 0
