@@ -3,53 +3,63 @@
 set -x
 
 # init env
+test -d marker || mkdir marker
 test -d output || mkdir output
 test -d model || mkdir model
 
+datasets=(train valid test)
+
+####################################################################################################
+# preprocess the yelp data set, transform to self-defined format.
+####################################################################################################
+
 # map-red the yelp data
-test -f output/review.merge
+
+echo "running map-reduce for the yelp review..."
+test -f marker/mr_review.mk
 if [ $? -ne 0 ]; then
-    cat data/*.json | python mr.py > output/review.merge
-    lines=`wc -l output/review.merge | awk '{print $1}'`
+    cat data/*.json | python mr_review.py > output/review.dat
     if [ $? -ne 0 ]; then
-        echo "execute mr.py error"
+        echo "execute mr_review.py error"
         exit -1
     fi
+
+    lines=`wc -l output/review.dat | awk '{print $1}'`
 
     ntrain=$((lines*9/10))
     nvalid=$(((lines-ntrain)/2))
     ntest=$((lines-ntrain-nvalid))
-    head -$ntrain output/review.merge > output/review.merge.train
-    tail -$((nvalid+ntest)) output/review.merge | head -$nvalid > output/review.merge.valid
-    tail -$((nvalid+ntest)) output/review.merge | tail -$ntest > output/review.merge.test
+
+    head -$ntrain output/review.dat > output/review.train
+    tail -$((nvalid+ntest)) output/review.dat | head -$nvalid > output/review.valid
+    tail -$((nvalid+ntest)) output/review.dat | tail -$ntest > output/review.test
+
+    touch marker/mr_review.mk
 fi
+echo "done"
 
-## train the doc2vec model from the corpus
-## perplexity: train=322.469,valid=331.492, test=345.631
-#nohup python doc2vec.py output/review.merge.train output/review.merge.valid output/review.merge.test > train.log 2>&1 &
-#if [ $? -ne 0 ]; then
-#    echo "execute doc2vec.py error"
-#    exit -1
-#fi
-
-# select important features
-test -f model/feature.pkl
+echo "running map-reduce for the yelp user..."
+test -f marker/mr_user.mk
 if [ $? -ne 0 ]; then
-    python feature_selection.py
+    cat data/*.json | python mr_user.py > output/user.dat
     if [ $? -ne 0 ]; then
-        echo "execute feature_selection.py error"
+        echo "execute mr_user.py error"
         exit -1
     fi
+    touch marker/mr_user.mk
 fi
+echo "done"
 
-# train logistic regression model
-test -f model/logisticregression.pkl
+echo "running map-reduce for the yelp business..."
+test -f marker/mr_business.mk
 if [ $? -ne 0 ]; then
-    python logistic_regression.py
+    cat data/*.json | python mr_business.py > output/business.dat
     if [ $? -ne 0 ]; then
-        echo "execute logistic_regression.py error"
+        echo "execute mr_business.py error"
         exit -1
     fi
+    touch marker/mr_business.mk
 fi
+echo "done"
 
 exit 0
