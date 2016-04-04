@@ -30,6 +30,7 @@ class MRProcess(MRJob):
         for cat in categories:
             for stars, text in reviews:
                 yield text, (stars, cat)
+            break
 
 if __name__ == "__main__":
     MRProcess().run()
