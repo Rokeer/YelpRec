@@ -1,12 +1,9 @@
 #coding: utf8
 
-import numpy as np
 from mrjob.job import MRJob
 from mrjob.protocol import JSONValueProtocol
 
 MIN_REVIEWS = 10
-
-np.random.seed(477)
 
 class MRProcess(MRJob):
 
@@ -39,10 +36,8 @@ class MRProcess(MRJob):
         if not review_count:
             return
         if len(reviews) >= MIN_REVIEWS:
-            np.random.shuffle(reviews)
-            mid = 9 * len(reviews) / 10
             ratings = 1.0 * sum_rating / num_rating if num_rating else 0
-            yield user_id, (review_count, average_stars, ratings, votes, reviews[:mid], reviews[mid:])
+            yield user_id, (review_count, average_stars, ratings, votes, reviews)
 
 if __name__ == "__main__":
     MRProcess().run()

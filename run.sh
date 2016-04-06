@@ -62,4 +62,16 @@ if [ $? -ne 0 ]; then
 fi
 echo "done"
 
+echo "partitioning the dataset..."
+test -f marker/partition.mk
+if [ $? -ne 0 ]; then
+    python partition.py output/user.dat output/rating.train output/rating.test
+    if [ $? -ne 0 ]; then
+        echo "execute partition.py error"
+        exit -1
+    fi
+    touch marker/partition.mk
+fi
+echo "done"
+
 exit 0

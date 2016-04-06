@@ -32,6 +32,10 @@ def compute_rsquared(labeled_vals, pred_vals):
 
 def evaluate(labeled_vals, pred_vals):
     """ evaluate results. """
-    print "mse:       %.4lf"  % (compute_mse(labeled_vals, pred_vals))
-    print "rmse:      %.4lf"  % (compute_rmse(labeled_vals, pred_vals))
-    print "R-squared: %.4lf"  % (compute_rsquared(labeled_vals, pred_vals))
+    #print "mse:       %.4lf"  % (compute_mse(labeled_vals, pred_vals))
+    #print "rmse:      %.4lf"  % (compute_rmse(labeled_vals, pred_vals))
+    #print "R-squared: %.4lf"  % (compute_rsquared(labeled_vals, pred_vals))
+    mse       = compute_mse(labeled_vals, pred_vals)
+    rmse      = compute_rmse(labeled_vals, pred_vals)
+    r_squared = compute_rsquared(labeled_vals, pred_vals)
+    return mse, rmse, r_squared

@@ -35,34 +35,30 @@ def predict_using_user_ratings(test_data):
     return pred_vals
 
 if __name__ == "__main__":
-    train_data, train_labels = load_data("output/rating.train")
-    test_data,  test_labels  = load_data("output/rating.test")
-
     db_business = BusinessDB("output/business.dat")
     db_user     = UserDB("output/user.dat")
 
-    print
+    pred_funcs = [
+        ("using business' stars provided by yelp",  predict_using_business_stars),
+        ("using business' ratings:",                predict_using_business_ratings),
+        ("using user's stars provided by yelp",     predict_using_user_stars),
+        ("using user's ratings",                    predict_using_user_ratings)
+    ]
 
-    # using business' stars provided by yelp
-    print "using business' stars provided by yelp:"
-    pred_vals = predict_using_business_stars(test_data)
-    evaluate(test_labels, pred_vals)
-    print
+    for desc, func in pred_funcs:
+        mse  = np.zeros((10, 1))
+        rmse = np.zeros((10, 1))
+        r_squared = np.zeros((10, 1))
 
-    # using business' ratings
-    print "using business' ratings:"
-    pred_vals = predict_using_business_ratings(test_data)
-    evaluate(test_labels, pred_vals)
-    print
+        for t in xrange(10):
+            print t
+            train_data, train_labels = load_data("output/rating.train.%s" %(t))
+            test_data,  test_labels  = load_data("output/rating.test.%s" %(t))
 
-    # using user' stars provided by yelp
-    print "using user's stars provided by yelp:"
-    pred_vals = predict_using_user_stars(test_data)
-    evaluate(test_labels, pred_vals)
-    print
+            pred_vals = func(test_data)
+            mse[t], rmse[t], r_squared[t] = evaluate(test_labels, pred_vals)
 
-    # using user's ratings
-    print "using user's ratings:"
-    pred_vals = predict_using_user_ratings(test_data)
-    evaluate(test_labels, pred_vals)
-    print
+        print desc
+        print "mse:       %.4lf"  % (mse.mean())
+        print "rmse:      %.4lf"  % (rmse.mean())
+        print "R-squared: %.4lf"  % (r_squared.mean())
