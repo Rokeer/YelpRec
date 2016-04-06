@@ -21,11 +21,18 @@ class MRProcess(MRJob):
         pos_reviews = []
         neg_reviews = []
 
+        sum_rating = 0
+        num_rating = 0
+
         for data_type, data in reviews_or_businesses:
             if data_type == 'business':
                 stars, review_count, categories = data
             elif data_type == 'review':
                 stars, votes, text = data
+
+                sum_rating += stars
+                num_rating += 1
+
                 if stars >= 3:
                     heapq.heappush(pos_reviews, (int(votes), text))
                     if len(pos_reviews) > REVIEWS_LIMIT: 
@@ -47,7 +54,8 @@ class MRProcess(MRJob):
             sorted_neg_reviews.append(heapq.heappop(neg_reviews))
         sorted_neg_reviews.reverse()
 
-        yield business_id, (stars, review_count, categories, sorted_pos_reviews, sorted_neg_reviews)
+        ratings = 1.0 * sum_rating / num_rating if num_rating else 0
+        yield business_id, (stars, ratings, review_count, categories, sorted_pos_reviews, sorted_neg_reviews)
 
 if __name__ == "__main__":
     MRProcess().run()
