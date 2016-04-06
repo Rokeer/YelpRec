@@ -51,7 +51,6 @@ if __name__ == "__main__":
         r_squared = np.zeros((10, 1))
 
         for t in xrange(10):
-            print t
             train_data, train_labels = load_data("output/rating.train.%s" %(t))
             test_data,  test_labels  = load_data("output/rating.test.%s" %(t))
 
