@@ -3,6 +3,7 @@
 import sys
 import json
 import numpy as np
+from util import preprocess
 
 import pdb
 
@@ -10,22 +11,35 @@ class BusinessInst(object):
     def __init__(self, obj):
         """ constructor. """
         self.obj = obj
+        self.stars = obj["stars"]
+        self.ratings = obj["ratings"]
+        self.pos_reviews = obj["pos_reviews"]
+        self.neg_reviews = obj["neg_reviews"]
 
     def __str__(self):
         """ return str for debug. """
         return json.dumps(self.obj)
 
-    def stars(self):
-        """ return the stars. """
-        return self.obj["stars"]
+    def infer_vectors(self, posDic, posLda, negDic, negLda):
+        """ infer the topic vectors. """
+        pos = ""
+        neg = ""
+        for (ratings, review) in self.pos_reviews:
+            pos = pos + review
+        for (ratings, review) in self.neg_reviews:
+            neg = neg + review
 
-    def ratings(self):
-        """ return the ratings. """
-        return self.obj["ratings"]
+        pos_tuple = posLda[posDic.doc2bow(preprocess(pos))]
+        neg_tuple = negLda[negDic.doc2bow(preprocess(neg))]
 
-    def infer_vectors(self):
-        """ TODO: infer the topic vectors. """
-        pass
+        pos_repr = [0] * posLda.num_topics
+        neg_repr = [0] * negLda.num_topics
+        for k, v in pos_tuple:
+            pos_repr[k] = v
+        for k, v in neg_tuple:
+            neg_repr[k] = v
+        self.lda_repr = pos_repr + neg_repr
+        return self.lda_repr
 
 class BusinessDB(object):
 
@@ -42,7 +56,7 @@ class BusinessDB(object):
                 items = line.split("\t")
                 business_id, business_data = json.loads(items[0]), json.loads(items[1])
 
-                self.db[business_id] = {
+                self.db[business_id] = BusinessInst({
                     "business_id"   : business_id,
                     "stars"         : business_data[0], # this average score is provided by yelp
                     "ratings"       : business_data[1], # this average score is computed by ourselves
@@ -50,15 +64,16 @@ class BusinessDB(object):
                     "categories"    : business_data[3],
                     "pos_reviews"   : business_data[4],
                     "neg_reviews"   : business_data[5]
-                }
+                })
             print >> sys.stderr, "succ, %s records loaded" %(len(self.db))
 
     def __getitem__(self, business_id):
         """ get business instance by id. """
-        obj = self.db.get(business_id, None)
-        if obj is None:
-            return None
-        return BusinessInst(obj)
+        return self.db.get(business_id, None)
+
+    def keys(self):
+        """ retur keys. """
+        return self.db.keys()
 
 if __name__ == "__main__":
     business = BusinessDB()

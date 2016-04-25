@@ -36,10 +36,11 @@ if __name__ == "__main__":
             if i >= t * batches_size and i < (t + 1) * batches_size:
                 fp2.write(line)
             else:
-                userdict.setdefault(user_id, set()).add(business_id)
+                userdict.setdefault(user_id, dict())[business_id] = stars
                 fp1.write(line)
         fp1.close()
         fp2.close()
 
         with open("%s.%s.history" %(sys.argv[2], t), "wb") as fp:
             pickle.dump(userdict, fp)
+

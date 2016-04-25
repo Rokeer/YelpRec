@@ -10,28 +10,28 @@ def predict_using_business_stars(test_data):
     """ using business stars to predict. """
     pred_vals = np.zeros((len(test_data), 1))
     for i, (user_id, business_id) in enumerate(test_data):
-        pred_vals[i] = db_business[business_id].stars()
+        pred_vals[i] = db_business[business_id].stars
     return pred_vals
 
 def predict_using_business_ratings(test_data):
     """ using business ratings to predict. """
     pred_vals = np.zeros((len(test_data), 1))
     for i, (user_id, business_id) in enumerate(test_data):
-        pred_vals[i] = db_business[business_id].ratings()
+        pred_vals[i] = db_business[business_id].ratings
     return pred_vals
 
 def predict_using_user_stars(test_data):
     """ using user stars to predict. """
     pred_vals = np.zeros((len(test_data), 1))
     for i, (user_id, business_id) in enumerate(test_data):
-        pred_vals[i] = db_user[user_id].stars()
+        pred_vals[i] = db_user[user_id].average_stars
     return pred_vals
 
 def predict_using_user_ratings(test_data):
     """ using user ratings to predict. """
     pred_vals = np.zeros((len(test_data), 1))
     for i, (user_id, business_id) in enumerate(test_data):
-        pred_vals[i] = db_user[user_id].ratings()
+        pred_vals[i] = db_user[user_id].ratings
     return pred_vals
 
 if __name__ == "__main__":

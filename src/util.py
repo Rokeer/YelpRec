@@ -1,7 +1,10 @@
 #coding: utf8
 
-import numpy as np
 import pdb
+import numpy as np
+from stop_words import get_stop_words
+from nltk.tokenize import RegexpTokenizer
+from nltk.stem.porter import PorterStemmer
 
 def load_data(file_name):
     """ load data set <user_id, business_id> -> rating from file. """
@@ -36,11 +39,19 @@ def compute_precision(labeled_vals, pred_vals):
 
 def evaluate(labeled_vals, pred_vals):
     """ evaluate results. """
-    #print "mse:       %.4lf"  % (compute_mse(labeled_vals, pred_vals))
-    #print "rmse:      %.4lf"  % (compute_rmse(labeled_vals, pred_vals))
-    #print "R-squared: %.4lf"  % (compute_rsquared(labeled_vals, pred_vals))
     mse       = compute_mse(labeled_vals, pred_vals)
     rmse      = compute_rmse(labeled_vals, pred_vals)
     r_squared = compute_rsquared(labeled_vals, pred_vals)
     precision = compute_precision(labeled_vals, pred_vals)
     return mse, rmse, r_squared, precision
+
+def preprocess(line):
+    """ preprocess line. """
+    tokenizer = RegexpTokenizer(r'\w+')
+    en_stop = get_stop_words('en')
+    p_stemmer = PorterStemmer()
+    raw = line.lower()
+    tokens = tokenizer.tokenize(raw)
+    stopped_tokens = [i for i in tokens if not i in en_stop]
+    stemmed_tokens = [p_stemmer.stem(i) for i in stopped_tokens]
+    return stemmed_tokens
