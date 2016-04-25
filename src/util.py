@@ -30,6 +30,10 @@ def compute_rsquared(labeled_vals, pred_vals):
     ss_res = np.sum((labeled_vals - pred_vals) ** 2)
     return 1.0 - ss_res / ss_tot
 
+def compute_precision(labeled_vals, pred_vals):
+    """ compute precision. """
+    return 1.0 * np.sum(np.abs(labeled_vals - pred_vals) < 0.5) / labeled_vals.shape[0]
+
 def evaluate(labeled_vals, pred_vals):
     """ evaluate results. """
     #print "mse:       %.4lf"  % (compute_mse(labeled_vals, pred_vals))
@@ -38,4 +42,5 @@ def evaluate(labeled_vals, pred_vals):
     mse       = compute_mse(labeled_vals, pred_vals)
     rmse      = compute_rmse(labeled_vals, pred_vals)
     r_squared = compute_rsquared(labeled_vals, pred_vals)
-    return mse, rmse, r_squared
+    precision = compute_precision(labeled_vals, pred_vals)
+    return mse, rmse, r_squared, precision

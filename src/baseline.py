@@ -49,15 +49,17 @@ if __name__ == "__main__":
         mse  = np.zeros((10, 1))
         rmse = np.zeros((10, 1))
         r_squared = np.zeros((10, 1))
+        precision = np.zeros((10, 1))
 
         for t in xrange(10):
             train_data, train_labels = load_data("output/rating.train.%s" %(t))
             test_data,  test_labels  = load_data("output/rating.test.%s" %(t))
 
             pred_vals = func(test_data)
-            mse[t], rmse[t], r_squared[t] = evaluate(test_labels, pred_vals)
+            mse[t], rmse[t], r_squared[t], precision[t] = evaluate(test_labels, pred_vals)
 
         print desc
         print "mse:       %.4lf"  % (mse.mean())
         print "rmse:      %.4lf"  % (rmse.mean())
         print "R-squared: %.4lf"  % (r_squared.mean())
+        print "Precision: %.4lf"  % (precision.mean())
