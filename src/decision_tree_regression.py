@@ -54,7 +54,12 @@ if __name__ == "__main__":
     users = load_users("output/user.lda")
     businesses = load_businesses("output/business.lda")
 
-    for t in xrange(1):
+    mse = np.zeros((10, 1))
+    rmse = np.zeros((10, 1))
+    r_squared = np.zeros((10, 1))
+    precision = np.zeros((10, 1))
+
+    for t in xrange(10):
         x_train, y_train = load_data("output/rating.train.%s" %(t))
         x_test, y_test = load_data("output/rating.test.%s" %(t))
 
@@ -62,9 +67,10 @@ if __name__ == "__main__":
         regr.fit(x_train, y_train)
 
         y_pred = regr.predict(x_test)
-        mse, rmse, r_squared, precision = evaluate(y_test, y_pred)
+        mse[t], rmse[t], r_squared[t], precision[t] = evaluate(y_test, y_pred)
+        print >> sys.stderr, "cross validation", t, "done"
 
-        print "mse:       %.4lf"  % (mse)
-        print "rmse:      %.4lf"  % (rmse)
-        print "R-squared: %.4lf"  % (r_squared)
-        print "Precision: %.4lf"  % (precision)
+    print "mse:       %.4lf"  % (mse.mean())
+    print "rmse:      %.4lf"  % (rmse.mean())
+    print "R-squared: %.4lf"  % (r_squared.mean())
+    print "Precision: %.4lf"  % (precision.mean())
