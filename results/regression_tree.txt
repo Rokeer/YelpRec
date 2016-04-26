@@ -1,0 +1,5 @@
+max_depth=5
+mse:       1.0582
+rmse:      1.0287
+R-squared: 0.2912
+Precision: 0.4032
