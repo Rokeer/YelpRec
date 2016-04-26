@@ -5,7 +5,7 @@ import json
 import sys
 import numpy as np
 from util import *
-from sklearn.tree import DecisionTreeRegressor
+from sklearn import linear_model
 
 def load_users(file_name):
     """ load users' feature. """
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         x_train, y_train = load_data("output/rating.train.%s" %(t))
         x_test, y_test = load_data("output/rating.test.%s" %(t))
 
-        regr = DecisionTreeRegressor(max_depth=15)
+        regr = linear_model.LinearRegression()
         regr.fit(x_train, y_train)
 
         y_pred = regr.predict(x_test)

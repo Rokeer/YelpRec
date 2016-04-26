@@ -5,7 +5,7 @@ import json
 import sys
 import numpy as np
 from util import *
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.neural_network import MLPRegressor
 
 def load_users(file_name):
     """ load users' feature. """
@@ -59,11 +59,11 @@ if __name__ == "__main__":
     r_squared = np.zeros((10, 1))
     precision = np.zeros((10, 1))
 
-    for t in xrange(10):
+    for t in xrange(1):
         x_train, y_train = load_data("output/rating.train.%s" %(t))
         x_test, y_test = load_data("output/rating.test.%s" %(t))
 
-        regr = DecisionTreeRegressor(max_depth=15)
+        regr = MLPRegressor(hidden_layer_sizes=(100, ), activation='logistic')
         regr.fit(x_train, y_train)
 
         y_pred = regr.predict(x_test)

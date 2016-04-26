@@ -1,0 +1,4 @@
+mse:       1.0308
+rmse:      1.0153
+R-squared: 0.3095
+Precision: 0.4030

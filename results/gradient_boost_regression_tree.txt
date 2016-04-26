@@ -1,0 +1,8 @@
+users loaded
+businesses loaded
+cross validation 0 done
+cross validation 1 done
+cross validation 2 done
+cross validation 3 done
+cross validation 4 done
+cross validation 5 done

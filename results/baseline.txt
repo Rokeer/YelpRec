@@ -1,0 +1,20 @@
+using business' stars provided by yelp
+mse:       2.9004
+rmse:      1.7030
+R-squared: -0.9429
+Precision: 0.3499
+using business' ratings:
+mse:       1.1875
+rmse:      1.0897
+R-squared: 0.2045
+Precision: 0.3608
+using user's stars provided by yelp
+mse:       1.3073
+rmse:      1.1434
+R-squared: 0.1242
+Precision: 0.3384
+using user's ratings
+mse:       1.2788
+rmse:      1.1308
+R-squared: 0.1434
+Precision: 0.3412

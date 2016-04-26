@@ -3,3 +3,17 @@ mse:       1.0582
 rmse:      1.0287
 R-squared: 0.2912
 Precision: 0.4032
+
+max_depth=10
+mse:       1.0378
+rmse:      1.0187
+R-squared: 0.3048
+Precision: 0.4111
+
+max_depth=20
+mse:       1.3369
+rmse:      1.1562
+R-squared: 0.1044
+Precision: 0.4170
+
+max_depth=15
