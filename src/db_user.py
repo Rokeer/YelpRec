@@ -27,11 +27,10 @@ class UserInst(object):
         pos = ""
         neg = ""
         for (business_id, ratings, review) in self.reviews:
-            if business_id in self.history_records:
-                if ratings >= 3:
-                    pos = pos + review
-                if ratings < 3:
-                    neg = neg + review
+            if ratings >= 3:
+                pos = pos + review
+            if ratings < 3:
+                neg = neg + review
 
         pos_tuple = posLda[posDic.doc2bow(preprocess(pos))]
         neg_tuple = negLda[negDic.doc2bow(preprocess(neg))]
