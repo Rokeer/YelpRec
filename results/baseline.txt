@@ -1,3 +1,7 @@
+loading businesses data from output/business.dat...
+succ, 77445 records loaded
+loading users data from output/user.dat...
+succ, 40233 records loaded
 using business' stars provided by yelp
 mse:       2.9004
 rmse:      1.7030

@@ -1,3 +1,13 @@
+cross validation 0 done, r_squared=0.3021, precision=0.3999
+cross validation 1 done, r_squared=0.3023, precision=0.3995
+cross validation 2 done, r_squared=0.3060, precision=0.4017
+cross validation 3 done, r_squared=0.3092, precision=0.4020
+cross validation 4 done, r_squared=0.3042, precision=0.3986
+cross validation 5 done, r_squared=0.3051, precision=0.3983
+cross validation 6 done, r_squared=0.3058, precision=0.3992
+cross validation 7 done, r_squared=0.3014, precision=0.4000
+cross validation 8 done, r_squared=0.3021, precision=0.3989
+cross validation 9 done, r_squared=0.3013, precision=0.4012
 mse:       1.0391
 rmse:      1.0193
 R-squared: 0.3040

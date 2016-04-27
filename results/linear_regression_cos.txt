@@ -1,5 +1,4 @@
-users loaded
-businesses loaded
+nohup: ignoring input
 cross validation 0 done
 cross validation 1 done
 cross validation 2 done
@@ -10,7 +9,7 @@ cross validation 6 done
 cross validation 7 done
 cross validation 8 done
 cross validation 9 done
-mse:       1.0457
-rmse:      1.0226
-R-squared: 0.2995
-Precision: 0.3919
+mse:       1.01278222
+rmse:      1.00636958
+R-squared: 0.32155795
+Precision: 0.39835332
