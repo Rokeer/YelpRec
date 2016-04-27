@@ -1,19 +1,121 @@
-max_depth=5
-mse:       1.0582
-rmse:      1.0287
-R-squared: 0.2912
-Precision: 0.4032
-
-max_depth=10
-mse:       1.0378
-rmse:      1.0187
-R-squared: 0.3048
-Precision: 0.4111
-
-max_depth=20
-mse:       1.3369
-rmse:      1.1562
-R-squared: 0.1044
-Precision: 0.4170
-
-max_depth=15
+nohup: ignoring input
+depth= 2
+cross validation 0 done, r_squared=0.1920, precision=0.3080
+mse:       1.20296715
+rmse:      1.09679859
+R-squared: 0.19204365
+Precision: 0.30804318
+depth= 4
+cross validation 0 done, r_squared=0.2728, precision=0.3814
+mse:       1.08276420
+rmse:      1.04055956
+R-squared: 0.27277631
+Precision: 0.38136877
+depth= 6
+cross validation 0 done, r_squared=0.2997, precision=0.4008
+mse:       1.04263049
+rmse:      1.02109279
+R-squared: 0.29973156
+Precision: 0.40077667
+depth= 8
+cross validation 0 done, r_squared=0.3062, precision=0.4075
+mse:       1.03301770
+rmse:      1.01637478
+R-squared: 0.30618786
+Precision: 0.40746024
+depth= 10
+cross validation 0 done, r_squared=0.3042, precision=0.4138
+mse:       1.03601928
+rmse:      1.01785032
+R-squared: 0.30417189
+Precision: 0.41376517
+depth= 12
+cross validation 0 done, r_squared=0.2893, precision=0.4132
+mse:       1.05808902
+rmse:      1.02863454
+R-squared: 0.28934906
+Precision: 0.41317518
+depth= 14
+cross validation 0 done, r_squared=0.2605, precision=0.4150
+mse:       1.10108327
+rmse:      1.04932515
+R-squared: 0.26047256
+Precision: 0.41502439
+depth= 16
+cross validation 0 done, r_squared=0.2183, precision=0.4172
+mse:       1.16391401
+rmse:      1.07884847
+R-squared: 0.21827315
+Precision: 0.41720822
+depth= 18
+cross validation 0 done, r_squared=0.1675, precision=0.4176
+mse:       1.23944164
+rmse:      1.11330213
+R-squared: 0.16754606
+Precision: 0.41755165
+depth= 20
+cross validation 0 done, r_squared=0.1064, precision=0.4175
+mse:       1.33042463
+rmse:      1.15344034
+R-squared: 0.10643859
+Precision: 0.41749001
+depth= 22
+cross validation 0 done, r_squared=0.0421, precision=0.4157
+mse:       1.42624184
+rmse:      1.19425368
+R-squared: 0.04208427
+Precision: 0.41569363
+depth= 24
+cross validation 0 done, r_squared=-0.0210, precision=0.4111
+mse:       1.52015234
+rmse:      1.23294458
+R-squared: 0.00000000
+Precision: 0.41110583
+depth= 26
+cross validation 0 done, r_squared=-0.0798, precision=0.4057
+mse:       1.60777491
+rmse:      1.26798064
+R-squared: 0.00000000
+Precision: 0.40573431
+depth= 28
+cross validation 0 done, r_squared=-0.1299, precision=0.4027
+mse:       1.68224357
+rmse:      1.29701333
+R-squared: 0.00000000
+Precision: 0.40268752
+depth= 30
+cross validation 0 done, r_squared=-0.1809, precision=0.3959
+mse:       1.75822321
+rmse:      1.32598009
+R-squared: 0.00000000
+Precision: 0.39587186
+depth= 32
+cross validation 0 done, r_squared=-0.2163, precision=0.3927
+mse:       1.81095986
+rmse:      1.34571909
+R-squared: 0.00000000
+Precision: 0.39268417
+depth= 34
+cross validation 0 done, r_squared=-0.2462, precision=0.3920
+mse:       1.85539696
+rmse:      1.36212957
+R-squared: 0.00000000
+Precision: 0.39204135
+depth= 36
+cross validation 0 done, r_squared=-0.2683, precision=0.3874
+mse:       1.88833869
+rmse:      1.37416836
+R-squared: 0.00000000
+Precision: 0.38740952
+depth= 38
+cross validation 0 done, r_squared=-0.2907, precision=0.3843
+mse:       1.92179356
+rmse:      1.38628769
+R-squared: 0.00000000
+Precision: 0.38430109
+depth= 40
+cross validation 0 done, r_squared=-0.3050, precision=0.3837
+mse:       1.94302999
+rmse:      1.39392611
+R-squared: 0.00000000
+Precision: 0.38370229
