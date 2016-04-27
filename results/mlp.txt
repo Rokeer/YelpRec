@@ -1,0 +1,241 @@
+nohup: ignoring input
+hidden= 1
+cross validation 0 done, r_squared=0.3085, precision=0.4024
+mse:       1.02952827
+rmse:      1.01465673
+R-squared: 0.30853149
+Precision: 0.40244976
+hidden= 2
+cross validation 0 done, r_squared=0.3167, precision=0.4034
+mse:       1.01736439
+rmse:      1.00864483
+R-squared: 0.31670119
+Precision: 0.40344481
+hidden= 3
+cross validation 0 done, r_squared=0.3192, precision=0.4129
+mse:       1.01360306
+rmse:      1.00677856
+R-squared: 0.31922744
+Precision: 0.41289340
+hidden= 4
+cross validation 0 done, r_squared=0.3210, precision=0.4081
+mse:       1.01096895
+rmse:      1.00546952
+R-squared: 0.32099660
+Precision: 0.40812948
+hidden= 5
+cross validation 0 done, r_squared=0.3223, precision=0.4229
+mse:       1.00897564
+rmse:      1.00447780
+R-squared: 0.32233538
+Precision: 0.42289674
+hidden= 6
+cross validation 0 done, r_squared=0.3239, precision=0.4194
+mse:       1.00660598
+rmse:      1.00329756
+R-squared: 0.32392693
+Precision: 0.41935683
+hidden= 7
+cross validation 0 done, r_squared=0.3300, precision=0.4155
+mse:       0.99762116
+rmse:      0.99880987
+R-squared: 0.32996146
+Precision: 0.41548229
+hidden= 8
+cross validation 0 done, r_squared=0.3264, precision=0.4092
+mse:       1.00286877
+rmse:      1.00143336
+R-squared: 0.32643698
+Precision: 0.40923020
+hidden= 9
+cross validation 0 done, r_squared=0.3312, precision=0.4171
+mse:       0.99573422
+rmse:      0.99786483
+R-squared: 0.33122880
+Precision: 0.41705852
+hidden= 10
+cross validation 0 done, r_squared=0.3318, precision=0.4085
+mse:       0.99482062
+rmse:      0.99740695
+R-squared: 0.33184240
+Precision: 0.40852574
+hidden= 11
+cross validation 0 done, r_squared=0.3331, precision=0.4146
+mse:       0.99299625
+rmse:      0.99649197
+R-squared: 0.33306772
+Precision: 0.41455769
+hidden= 12
+cross validation 0 done, r_squared=0.3316, precision=0.4189
+mse:       0.99522459
+rmse:      0.99760944
+R-squared: 0.33157109
+Precision: 0.41885490
+hidden= 13
+cross validation 0 done, r_squared=0.3323, precision=0.4171
+mse:       0.99410136
+rmse:      0.99704632
+R-squared: 0.33232549
+Precision: 0.41705852
+hidden= 14
+cross validation 0 done, r_squared=0.3353, precision=0.4123
+mse:       0.98970307
+rmse:      0.99483821
+R-squared: 0.33527954
+Precision: 0.41233863
+hidden= 15
+cross validation 0 done, r_squared=0.3337, precision=0.4106
+mse:       0.99199061
+rmse:      0.99598725
+R-squared: 0.33374314
+Precision: 0.41062151
+hidden= 16
+cross validation 0 done, r_squared=0.3373, precision=0.4167
+mse:       0.98671147
+rmse:      0.99333351
+R-squared: 0.33728880
+Precision: 0.41668868
+hidden= 17
+cross validation 0 done, r_squared=0.3340, precision=0.4254
+mse:       0.99158334
+rmse:      0.99578278
+R-squared: 0.33401668
+Precision: 0.42542400
+hidden= 18
+cross validation 0 done, r_squared=0.3335, precision=0.4213
+mse:       0.99235773
+rmse:      0.99617154
+R-squared: 0.33349657
+Precision: 0.42131171
+hidden= 19
+cross validation 0 done, r_squared=0.3327, precision=0.4036
+mse:       0.99354235
+rmse:      0.99676594
+R-squared: 0.33270094
+Precision: 0.40357690
+hidden= 20
+cross validation 0 done, r_squared=0.3427, precision=0.4081
+mse:       0.97858487
+rmse:      0.98923449
+R-squared: 0.34274692
+Precision: 0.40809426
+hidden= 21
+cross validation 0 done, r_squared=0.3347, precision=0.4043
+mse:       0.99053816
+rmse:      0.99525784
+R-squared: 0.33471866
+Precision: 0.40429897
+hidden= 22
+cross validation 0 done, r_squared=0.3396, precision=0.4083
+mse:       0.98323332
+rmse:      0.99158122
+R-squared: 0.33962486
+Precision: 0.40829679
+hidden= 23
+cross validation 0 done, r_squared=0.3365, precision=0.4080
+mse:       0.98794197
+rmse:      0.99395270
+R-squared: 0.33646236
+Precision: 0.40798859
+hidden= 24
+cross validation 0 done, r_squared=0.3374, precision=0.4239
+mse:       0.98659117
+rmse:      0.99327296
+R-squared: 0.33736960
+Precision: 0.42387418
+hidden= 25
+cross validation 0 done, r_squared=0.3378, precision=0.4164
+mse:       0.98595096
+rmse:      0.99295063
+R-squared: 0.33779959
+Precision: 0.41644212
+hidden= 26
+cross validation 0 done, r_squared=0.3349, precision=0.4019
+mse:       0.99030714
+rmse:      0.99514177
+R-squared: 0.33487382
+Precision: 0.40193903
+hidden= 27
+cross validation 0 done, r_squared=0.3307, precision=0.3899
+mse:       0.99659377
+rmse:      0.99829543
+R-squared: 0.33065150
+Precision: 0.38992797
+hidden= 28
+cross validation 0 done, r_squared=0.3441, precision=0.4077
+mse:       0.97659615
+rmse:      0.98822879
+R-squared: 0.34408262
+Precision: 0.40770680
+hidden= 29
+cross validation 0 done, r_squared=0.3420, precision=0.4084
+mse:       0.97973396
+rmse:      0.98981512
+R-squared: 0.34197515
+Precision: 0.40838485
+hidden= 30
+cross validation 0 done, r_squared=0.3467, precision=0.4109
+mse:       0.97269083
+rmse:      0.98625090
+R-squared: 0.34670557
+Precision: 0.41093852
+hidden= 31
+cross validation 0 done, r_squared=0.3409, precision=0.4312
+mse:       0.98130321
+rmse:      0.99060749
+R-squared: 0.34092119
+Precision: 0.43117416
+hidden= 32
+cross validation 0 done, r_squared=0.3362, precision=0.4325
+mse:       0.98840201
+rmse:      0.99418409
+R-squared: 0.33615337
+Precision: 0.43248622
+hidden= 33
+cross validation 0 done, r_squared=0.3443, precision=0.4282
+mse:       0.97628671
+rmse:      0.98807222
+R-squared: 0.34429045
+Precision: 0.42816259
+hidden= 34
+cross validation 0 done, r_squared=0.3369, precision=0.4251
+mse:       0.98732344
+rmse:      0.99364150
+R-squared: 0.33687779
+Precision: 0.42508938
+hidden= 35
+cross validation 0 done, r_squared=0.3475, precision=0.4298
+mse:       0.97151434
+rmse:      0.98565427
+R-squared: 0.34749575
+Precision: 0.42978285
+hidden= 36
+cross validation 0 done, r_squared=0.3475, precision=0.4206
+mse:       0.97145341
+rmse:      0.98562336
+R-squared: 0.34753667
+Precision: 0.42058083
+hidden= 37
+cross validation 0 done, r_squared=0.3476, precision=0.4129
+mse:       0.97136883
+rmse:      0.98558045
+R-squared: 0.34759348
+Precision: 0.41294623
+hidden= 38
+cross validation 0 done, r_squared=0.3498, precision=0.4306
+mse:       0.96805488
+rmse:      0.98389780
+R-squared: 0.34981925
+Precision: 0.43057537
+hidden= 39
+cross validation 0 done, r_squared=0.3489, precision=0.4191
+mse:       0.96942977
+rmse:      0.98459625
+R-squared: 0.34889582
+Precision: 0.41911027
+hidden= 40
+cross validation 0 done, r_squared=0.3458, precision=0.4299
+mse:       0.97408322
+rmse:      0.98695654
+R-squared: 0.34577040
+Precision: 0.42991494
